@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TechSupport Africa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #eef3f4;
+    --ink: #10302f;
+    --muted: #4d6665;
+    --teal: #0e5a55;
+    --sun: #f2b705;
+    --card: #ffffff;
+    --line: #c9d8d8;
+    --err: #b3261e;
+    --ok: #17663a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1f1f;
+      --ink: #e8f1f0;
+      --muted: #9db6b4;
+      --teal: #4fc3b9;
+      --sun: #f2b705;
+      --card: #14302f;
+      --line: #28504e;
+      --err: #ff8a80;
+      --ok: #6fdc9b;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Public Sans", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  header { padding: 22px 0; }
+  .brand {
+    font-family: "Bricolage Grotesque", "Trebuchet MS", sans-serif;
+    font-weight: 800;
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .mark {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: conic-gradient(var(--sun) 0 25%, var(--teal) 0 100%);
+  }
+  .hero {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 56px;
+    align-items: start;
+    padding: 40px 0 72px;
+  }
+  h1 {
+    font-family: "Bricolage Grotesque", "Trebuchet MS", sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.4rem, 5.5vw, 4rem);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    margin: 0 0 20px;
+  }
+  .lead { font-size: 1.125rem; color: var(--muted); max-width: 46ch; margin: 0 0 32px; }
+  .services { list-style: none; padding: 0; margin: 0; max-width: 46ch; }
+  .services li {
+    padding: 14px 0 14px 18px;
+    border-left: 4px solid var(--sun);
+    margin-bottom: 12px;
+    background: color-mix(in srgb, var(--card) 60%, transparent);
+  }
+  .services strong { display: block; font-family: "Bricolage Grotesque", sans-serif; font-size: 1.05rem; }
+  .services span { color: var(--muted); font-size: 0.95rem; }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 32px;
+  }
+  .card h2 {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 1.6rem;
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+  .card p.sub { margin: 0 0 24px; color: var(--muted); }
+  label { display: block; font-weight: 600; margin-bottom: 6px; }
+  .field { margin-bottom: 18px; }
+  input, textarea {
+    width: 100%;
+    font: inherit;
+    color: var(--ink);
+    background: var(--bg);
+    border: 1.5px solid var(--line);
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  textarea { min-height: 140px; resize: vertical; }
+  input:focus-visible, textarea:focus-visible, button:focus-visible {
+    outline: 3px solid var(--sun);
+    outline-offset: 2px;
+  }
+  button {
+    font: inherit;
+    font-weight: 700;
+    width: 100%;
+    padding: 14px 18px;
+    border: 0;
+    border-radius: 8px;
+    background: var(--teal);
+    color: #fff;
+    cursor: pointer;
+  }
+  @media (prefers-color-scheme: dark) { button { color: #082220; } }
+  button:hover { filter: brightness(1.08); }
+  button:disabled { opacity: 0.65; cursor: wait; }
+  #status { margin: 16px 0 0; min-height: 1.5em; font-weight: 500; }
+  #status.ok { color: var(--ok); }
+  #status.error { color: var(--err); }
+
+  footer { padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem; }
+
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; gap: 36px; padding-bottom: 48px; }
+    .card { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <span class="brand"><span class="mark" aria-hidden="true"></span>TechSupport Africa</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <h1>Tech problems solved, wherever you are in Africa.</h1>
+        <p class="lead">Tell us what is not working. A support specialist reads every enquiry and replies by email.</p>
+        <ul class="services">
+          <li><strong>Devices and software</strong><span>Phones, laptops, apps and operating systems.</span></li>
+          <li><strong>Networks and connectivity</strong><span>Wi-Fi, routers, slow or unstable connections.</span></li>
+          <li><strong>Business IT</strong><span>Email, accounts, backups and team setup.</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Send us an enquiry</h2>
+        <p class="sub">All three fields are required.</p>
+        <form id="enquiry-form" novalidate>
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="enquiry">Enquiry</label>
+            <textarea id="enquiry" name="enquiry" required></textarea>
+          </div>
+          <button type="submit" id="submit-btn">Send enquiry</button>
+          <p id="status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© <span id="year"></span> TechSupport Africa</div>
+  </footer>
+
+<script>
+  var WEBHOOK_URL = "https://inspiredpro.app.n8n.cloud/webhook-test/customer_enquiry";
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  var form = document.getElementById("enquiry-form");
+  var btn = document.getElementById("submit-btn");
+  var statusEl = document.getElementById("status");
+
+  function setStatus(msg, cls) {
+    statusEl.textContent = msg;
+    statusEl.className = cls || "";
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    var payload = {
+      name: form.name.value.trim(),
+      email: form.email.value.trim(),
+      enquiry: form.enquiry.value.trim()
+    };
+
+    if (!payload.name || !payload.email || !payload.enquiry) {
+      setStatus("Fill in your name, email and enquiry before sending.", "error");
+      return;
+    }
+    if (!form.email.checkValidity()) {
+      setStatus("Enter a valid email address, such as name@example.com.", "error");
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = "Sending…";
+    setStatus("");
+
+    fetch(WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    })
+      .then(function (res) {
+        if (!res.ok) { throw new Error("Request failed with status " + res.status); }
+        form.reset();
+        setStatus("Enquiry sent. We will reply to your email soon.", "ok");
+      })
+      .catch(function (err) {
+        console.error(err);
+        setStatus("Your enquiry was not sent. Check your connection and try again.", "error");
+      })
+      .finally(function () {
+        btn.disabled = false;
+        btn.textContent = "Send enquiry";
+      });
+  });
+</script>
+</body>
+</html>
